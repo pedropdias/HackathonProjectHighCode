@@ -8,12 +8,50 @@
     margin-bottom: 30px;
 }
 
-/* .row {
-    text-align: center;
-    align-items: center;
-}  */
+
 
 .cadastroItem {
     position: relative;
     left: 33%
+}
+
+#profileImg {
+    max-width: 100px;
+    position: relative;
+    left: 35%;
+}
+
+#riscosImg {
+    position: relative;
+    top: 15%;
+}
+
+#policiaImg {
+    max-width: 200px;
+    position: relative;
+    left: 26%;
+    top: 20%;
+}
+
+#bolsaSangueImg {
+    max-width: 200px;
+    position: relative;
+    left: 26%;
+    top: 20%;
+}
+
+#susImg {
+    max-width: 500px;
+    position: relative;
+    left: 1%;
+    top: 15%;
+}
+
+.card-body {
+    position: relative;
+    top: 10%;
+}
+
+#card-body-sus {
+    top: -2%;
 }
