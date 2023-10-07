@@ -1,0 +1,19 @@
+.hospitalList {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.hospitalLocation {
+    margin-bottom: 30px;
+}
+
+/* .row {
+    text-align: center;
+    align-items: center;
+}  */
+
+.cadastroItem {
+    position: relative;
+    left: 33%
+}
