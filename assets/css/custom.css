@@ -25,7 +25,7 @@
     max-width: 100px;
     position: relative;
     left: 35%;
-    
+
 }
 
 @media screen and (max-width: 600px) {
@@ -80,7 +80,5 @@
     font-size: 1.3rem;
 }
 
-#section2 {
-    /* background-color: rgb(206, 206, 206); */
-}
+
 

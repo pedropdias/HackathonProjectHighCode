@@ -10,7 +10,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/custom.css">
 
     <!-- Load fonts style after rendering the layout styles -->
@@ -281,6 +281,160 @@
 
     </footer>
     <!-- End Footer -->
+
+    <style>
+        /* Estilo para o botão circular vermelho */
+        .circle-button {
+          width: 100px;
+          height: 100px;
+          background-color: red;
+          border-radius: 50%; /* Define o formato de círculo */
+          position: fixed;
+          bottom: 20px; /* Distância a partir da borda inferior */
+          right: 20px; /* Distância a partir da borda direita */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-weight: bold;
+          text-decoration: none;
+          cursor: pointer; /* Transforma o cursor em uma mão para indicar que é clicável */
+        }
+        
+        /* Estilo para a sobreposição */
+        .overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+          z-index: 1;
+          justify-content: center;
+          align-items: center;
+          transition: transform 0.3s; /* Adiciona uma transição para a animação de diminuição */
+        }
+        
+        /* Estilo para a caixa de conteúdo da sobreposição */
+        .overlay-content {
+          background-color: white;
+          padding: 20px;
+          border-radius: 10px;
+          position: relative;
+          text-align: left; /* Alinha o texto da esquerda para a direita */
+          transform: scale(0.8); /* Diminui a proporção da caixa da sobreposição */
+          transition: transform 0.3s; /* Adiciona uma transição para a animação de diminuição */
+        }
+        
+        /* Estilo para o botão de fechar */
+        .close-button {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+        }
+        
+        /* Estilo para o botão CONFIRMAR */
+        .confirm-button {
+          background-color: red;
+          color: white;
+          text-transform: uppercase;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+        
+        /* Estilo para o ícone aumentado */
+        .icon-large {
+          font-size: 48px; /* Ajuste o tamanho do ícone conforme necessário */
+        }
+        
+        </style>
+        </head>
+        <body>
+        
+        <!-- O botão circular vermelho com o ícone -->
+        <div class="circle-button" onclick="mostrarOverlay()">
+          <div class="fa-3x icon-large">
+            <i class="fa-solid fa-triangle-exclamation fa-fade"></i>
+          </div>
+        </div>
+        
+        <audio id="notification-sound" src="assets/img/seu-som-de-notificacao.mp3" ></audio>
+        
+        <!-- Sobreposição -->
+        <div class="overlay" id="overlay">
+          <div class="overlay-content">
+            <span class="close-button" onclick="fecharOverlay()">&#10006;</span>
+            <h2>Você sabe identificar uma situação de risco grave ?</h2> <!-- Título -->
+            <p>Veja abaixo situações para ver se elas se encaixam com a sua:</p> <!-- Subtítulo -->
+            <ul>
+              <li>Corte profundo</li>
+              <li>Acidente de origem elétrica</li>
+              <li>Picada ou mordida de animais peçonhentos</li>
+              <li>Queimaduras</li>
+              <li>Afogamentos</li>
+              <li>Hemorragia (forte sangramento)</li>
+              <li>Infarto do miocárdio (dor forte no peito)</li>
+              <li>Dificuldade respiratória</li>
+              <li>Derrames, perda de função e/ou dormência nos braços e pernas</li>
+              <li>Inconsciência/desmaio</li>
+              <li>Intoxicação por alimento ou medicamento</li>
+              <li>Sangue no vômito, urina, fezes ou tosse</li>
+              <li>Grave reação alérgica</li>
+              <li>Febre alta permanente</li>
+              <li>Convulsões, dores intensas no peito, abdômen, cabeça e outros</li>
+              <li>Agressões físicas</li>
+              <li>Acidentes de carro, moto, atropelamento e quedas</li>
+            </ul>
+            
+            <button class="confirm-button" onclick="enviarEmergencia()">
+                CONFIRMAR
+            </button> <!-- Botão CONFIRMAR -->
+          </div>
+        </div>
+        
+        <!-- Sobreposição de confirmação -->
+        <div class="overlay" id="confirm-overlay">
+          <div class="overlay-content">
+            <h2>Emergência Enviada</h2>
+            <p>Sua emergência foi enviada para o hospital mais próximo de você.</p>
+          </div>
+        </div>
+        
+        <script>
+        let notificationTimeout; // Variável para armazenar o timeout do áudio
+        const audio = document.getElementById("notification-sound")
+        audio.pause()
+        
+        function mostrarOverlay() {
+          const overlay = document.getElementById("overlay");
+          overlay.style.display = "block";
+          
+        }
+        
+        function fecharOverlay() {
+          const overlay = document.getElementById("overlay");
+          overlay.querySelector(".overlay-content").style.transform = "scale(0.8)";
+          setTimeout(() => {
+            overlay.style.display = "none";
+          }, 300); // Espera 0.3 segundos antes de esconder a sobreposição
+          clearTimeout(notificationTimeout); // Limpa o timeout do áudio quando a sobreposição é fechada
+        }
+        
+        function enviarEmergencia() {
+          fecharOverlay(); // Fecha a sobreposição atual
+          const confirmOverlay = document.getElementById("confirm-overlay");
+          confirmOverlay.style.display = "block"; // Abre a sobreposição de confirmação
+          audio.play()
+          setTimeout(() => {
+            confirmOverlay.style.display = "none"; // Fecha a sobreposição de confirmação após 10 segundos
+          }, 10000); // 10 segundos em milissegundos
+        }
+        </script>
 
     <!-- Start Script -->
     <script src="assets/js/jquery-1.11.0.min.js"></script>
