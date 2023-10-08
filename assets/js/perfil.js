@@ -44,7 +44,7 @@ botaoEnviar.addEventListener("click", function() {
     console.log(novaPessoa);
     localStorage.getItem(chave, novaPessoa);
     console.log(localStorage.getItem(chave, novaPessoa));
-    window.location.href="/perfil.html";
+    window.location.href="/HackathonProjectHighCode/perfil.html";
   });
 
 const pessoaGuardada = JSON.parse(localStorage.getItem(chave));
