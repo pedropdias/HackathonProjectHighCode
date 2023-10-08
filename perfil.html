@@ -2,13 +2,9 @@
 <html lang="pt-br">
 
 <head>
-    <title>HealthExpress - Hospitais</title>
+    <title>HealthExpress</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""/>
 
     <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
@@ -20,16 +16,8 @@
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-
-    <!-- Load map styles -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
 <!--
     
-TemplateMo 559 Zay Shop
-
-https://templatemo.com/tm-559-zay-shop
-
--->
 </head>
 
 <body>
@@ -39,9 +27,9 @@ https://templatemo.com/tm-559-zay-shop
             <div class="w-100 d-flex justify-content-between">
                 <div>
                     <i class="fa fa-envelope mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:healthexpress@comp.com">healthexpress@comp.com</a>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">healthexpress@comp.com</a>
                     <i class="fa fa-phone mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:000-000-0000">000-000-0000</a>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">000-000-0000</a>
                 </div>
                 <div>
                     <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
@@ -77,7 +65,7 @@ https://templatemo.com/tm-559-zay-shop
                             <a class="nav-link" href="about.html">Sobre</a>
                         </li>
                         <!-- <li class="nav-item">
-                            <a class="nav-link" href="shop.html">Shop</a>
+                            <a class="nav-link" href="shop.html">Classificação de Risco</a>
                         </li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">Hospitais</a>
@@ -93,6 +81,13 @@ https://templatemo.com/tm-559-zay-shop
                             </div>
                         </div>
                     </div>
+                    <!-- <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
+                    </a> -->
                     <a class="nav-icon position-relative text-decoration-none" href="#">
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
@@ -112,7 +107,7 @@ https://templatemo.com/tm-559-zay-shop
             </div>
             <form action="" method="get" class="modal-content modal-body border-0 p-0">
                 <div class="input-group mb-2">
-                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Pesquisa...">
                     <button type="submit" class="input-group-text bg-success text-light">
                         <i class="fa fa-fw fa-search text-white"></i>
                     </button>
@@ -121,73 +116,113 @@ https://templatemo.com/tm-559-zay-shop
         </div>
     </div>
 
-
-    <!-- Start Content Page -->
-    <div class="container-fluid bg-light py-5">
-        <div class="col-md-6 m-auto text-center">
-            <h1 class="h1">Localização de Unidades de Saúde Públicas</h1>
-            <p>
-                Veja no mapa abaixo as unidades mais próximas a você:
-            </p>
-        </div>
-    </div>
-
-    <!-- Start Map -->
-    <div id="mapid" style="width: 100%; height: 400px;"></div>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-    
-    <!-- End Map -->
-
     <!-- Start Contact -->
-    <!-- <div class="container py-5">
+    <div class="container py-5">
         <div class="row py-5">
             <form class="col-md-9 m-auto" method="post" role="form">
                 <div class="row">
                     <div class="form-group col-md-6 mb-3">
-                        <label for="inputname">Nome</label>
-                        <input type="text" class="form-control mt-1" id="name" name="name" placeholder="Nome">
+                        <label for="inputname">Nome Completo</label>
+                        <input type="text" class="form-control mt-1" id="name1" name="name" placeholder="Nome">
                     </div>
                     <div class="form-group col-md-6 mb-3">
                         <label for="inputcpf">CPF</label>
                         <input type="cpf" class="form-control mt-1" id="cpf" name="cpf" placeholder="CPF">
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label for="inputsubject">Telefone</label>
-                    <input type="text" class="form-control mt-1" id="telefone" name="telefone" placeholder="Telefone">
+                <div class="row">
+                    <div class="form-group col-md-6 mb-3">
+                        <label for="inputRG">N. do RG</label>
+                        <input type="text" class="form-control mt-1" id="rg" name="rg" placeholder="N. do RG">
+                    </div>
+                    <div class="form-group col-md-6 mb-3">
+                        <label for="inputDataNascimento">Data de Nascimento</label>
+                        <input type="date" class="form-control mt-1" id="dataNascimento" name="dataNascimento" placeholder="Data de Nascimento">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6 mb-3">
+                        <label for="inputNomeMae">Nome da Mãe</label>
+                        <input type="text" class="form-control mt-1" id="nameMae" name="nameMae" placeholder="Nome da Mãe">
+                    </div>
+                    <div class="form-group col-md-6 mb-3">
+                        <label for="inputNomePai">Nome do Pai</label>
+                        <input type="text" class="form-control mt-1" id="namePai" name="namePai" placeholder="Nome do Pai">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6 mb-3">
+                        <label for="inputTelefone">Telefone</label>
+                        <input type="text" class="form-control mt-1" id="telefone" name="telefone" placeholder="Telefone">
+                    </div>
+                    <div class="form-group col-md-6 mb-3">
+                        <label for="inputEmail">Email</label>
+                        <input type="email" class="form-control mt-1" id="email" name="email" placeholder="Email">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6 mb-3">
+                        <label for="inputCEP">CEP</label>
+                        <input type="text" class="form-control mt-1" id="cep" name="cep" placeholder="CEP">
+                    </div>
+                    <div class="form-group col-md-6 mb-3">
+                        <label for="inputEndereco">Endereço</label>
+                        <input type="text" class="form-control mt-1" id="endereco" name="endereco" placeholder="Endereço">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6 mb-3">
+                        <label for="inputUF">UF</label>
+                        <select class="form-control mt-1" name="uf" id="uf">
+                            <option value="" disabled selected>UF</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6 mb-3">
+                        <label for="inputMunicipio">Município</label>
+                        <input type="text" class="form-control mt-1" id="municipio" name="municipio" placeholder="Municipio">
+                    </div>
                 </div>
                 <div class="mb-3">
-                    <label for="inputmessage">Situação</label>
-                    <textarea class="form-control mt-1" id="situacao" name="situacao" placeholder="Situação" rows="8"></textarea>
+                    <label for="inputmessage">Observações</label>
+                    <textarea class="form-control mt-1" id="observacoes" name="observacoes" placeholder="Observações" rows="8"></textarea>
                 </div>
                 <div class="row">
                     <div class="col text-end mt-2">
-                        <button type="submit" class="btn btn-success btn-lg px-3">Enviar</button>
+                        <button type="button" class="btn btn-success btn-lg px-3" id="enviar" href="perfil.html">Enviar</button>
                     </div>
                 </div>
             </form>
         </div>
-    </div> -->
+    </div>
     <!-- End Contact -->
 
-    <!-- Hospitals List Start -->
-        <div class="hospitalList">
-            <h2 class="hospitalName" id="hospitalNameTitle">Unidades de Sáude mais próximas</h2>
-            <h2 class="hospitalName">Hospital das Clínicas de Teresópolis</h2>
-            <p class="hospitalLocation"><i class="fa-solid fa-location-dot"></i>
-                Av. Delfim Moreira 2211, Teresópolis, RJ, 25976-016</p>
-
-            <h2 class="hospitalName">Unidade de Posto de Saúde da Familia da Fonte Santa</h2>
-            <p class="hospitalLocation"><i class="fa-solid fa-location-dot"></i>
-                Estr. Fonte Santa 1448, Teresópolis, RJ, 25976-700</p>
-
-            <h2 class="hospitalName">Hospital Exemplo3</h2>
-            <p class="hospitalLocation"><i class="fa-solid fa-location-dot"></i>
-                Localização do hospital3</p>
-        </div>        
-    <!-- Hospitals List End -->
-
-    <!-- Start Footer -->
     <footer class="bg-dark" id="tempaltemo_footer">
         <div class="container">
             <div class="row">
@@ -232,13 +267,6 @@ https://templatemo.com/tm-559-zay-shop
                         </li>
                     </ul>
                 </div>
-                <!-- <div class="col-auto">
-                    <label class="sr-only" for="subscribeEmail">Email address</label>
-                    <div class="input-group mb-2">
-                        <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
-                        <div class="input-group-text btn-success text-light">Subscribe</div>
-                    </div>
-                </div> -->
             </div>
         </div>
 
@@ -246,10 +274,6 @@ https://templatemo.com/tm-559-zay-shop
             <div class="container">
                 <div class="row pt-2">
                     <div class="col-12">
-                        <!-- <p class="text-left text-light">
-                            Copyright &copy; 2021 Company Name 
-                            | Designed by <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a>
-                        </p> -->
                     </div>
                 </div>
             </div>
@@ -263,11 +287,9 @@ https://templatemo.com/tm-559-zay-shop
     <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/templatemo.js"></script>
-    <script src="assets/js/custom.js"></script>
+    <!-- <script src="assets/js/custom.js"></script> -->
+    <script src="assets/js/perfil.js"></script>
     <script src="https://kit.fontawesome.com/b2dc3f9e99.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""></script>
     <!-- End Script -->
 </body>
 

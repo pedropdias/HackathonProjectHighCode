@@ -40,7 +40,7 @@ function success(pos){
 
     for (var i = 0; i < locations.length; i++) {
         marker = new L.marker([locations[i][1], locations[i][2]])
-          .bindPopup(locations[i][0])
+        //   .bindPopup(locations[i][0])
           .addTo(map);
       }
 
@@ -74,5 +74,93 @@ var watchID = navigator.geolocation.watchPosition(success, error, {
 //       attribution: '&copy; ' + mapLink + ' Contributors',
 //       maxZoom: 18,
 //     }).addTo(map);
-  
+
+
+// LOCAL STORAGE
+
+// const nome = document.getElementById("name1");
+// const cpf = document.getElementById("cpf");
+// const rg = document.getElementById("rg");
+// const dataNascimento = document.getElementById("dataNascimento");
+// const nomeMae = document.getElementById("nameMae");
+// const nomePai = document.getElementById("namePai");
+// const telefone = document.getElementById("telefone");
+// const email = document.getElementById("email");
+// const cep = document.getElementById("cep");
+// const endereco = document.getElementById("endereco");
+// const uf = document.getElementById("uf");
+// const municipio = document.getElementById("municipio");
+// const observacoes = document.getElementById("observacoes");
+
+// const pessoa = {nome: nome.value,
+//                 cpf: cpf.value,
+//                 rg: rg.value,
+//                 dataNascimento: dataNascimento.value,
+//                 nomeMae: nomeMae.value,
+//                 nomePai: nomePai.value,
+//                 telefone: telefone.value,
+//                 email: email.value,
+//                 cep: cep.value,
+//                 endereco: endereco.value,
+//                 uf: uf.value,
+//                 municipio: municipio.value,
+//                 observacoes: observacoes.value
+// };
+
+const nome = document.getElementById("name1");
+const cpf = document.getElementById("cpf");
+const rg = document.getElementById("rg");
+const dataNascimento = document.getElementById("dataNascimento");
+const nomeMae = document.getElementById("nameMae");
+const nomePai = document.getElementById("namePai");
+const telefone = document.getElementById("telefone");
+const email = document.getElementById("email");
+const cep = document.getElementById("cep");
+const endereco = document.getElementById("endereco");
+const uf = document.getElementById("uf");
+const municipio = document.getElementById("municipio");
+const observacoes = document.getElementById("observacoes");
+
+function criarPessoa() {
+    
+    
+    const pessoa = {
+      nome: nome.value,
+      cpf: cpf.value,
+      rg: rg.value,
+      dataNascimento: dataNascimento.value,
+      nomeMae: nomeMae.value,
+      nomePai: nomePai.value,
+      telefone: telefone.value,
+      email: email.value,
+      cep: cep.value,
+      endereco: endereco.value,
+      uf: uf.value,
+      municipio: municipio.value,
+      observacoes: observacoes.value
+    };
+    console.log(pessoa);
+    return pessoa;
+  }
+
+const chave = "data"
+
+const botaoEnviar = document.getElementById("enviar");
+botaoEnviar.addEventListener("click", function() {
+    const novaPessoa = criarPessoa();
+    const pessoaJSON = JSON.stringify(novaPessoa);
+    localStorage.setItem(chave, pessoaJSON);
+    console.log(novaPessoa);
+    localStorage.getItem(chave, novaPessoa);
+    console.log(localStorage.getItem(chave, novaPessoa));
+    window.location.href="/HealthExpress/HealthExpress/perfil.html#";
+  });
+
+const pessoaGuardada = JSON.parse(localStorage.getItem(chave));
+
+
+
+
+
+
  
