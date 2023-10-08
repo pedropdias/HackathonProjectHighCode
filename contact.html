@@ -2,9 +2,13 @@
 <html lang="pt-br">
 
 <head>
-    <title>Zay Shop - Contact</title>
+    <title>HealthExpress - Hospitais</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
 
     <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
@@ -35,9 +39,9 @@ https://templatemo.com/tm-559-zay-shop
             <div class="w-100 d-flex justify-content-between">
                 <div>
                     <i class="fa fa-envelope mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:healthexpress@comp.com">healthexpress@comp.com</a>
                     <i class="fa fa-phone mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:000-000-0000">000-000-0000</a>
                 </div>
                 <div>
                     <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
@@ -89,16 +93,9 @@ https://templatemo.com/tm-559-zay-shop
                             </div>
                         </div>
                     </div>
-                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
-                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                    </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
-                    </a>
                     <a class="nav-icon position-relative text-decoration-none" href="#">
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                     </a>
                 </div>
             </div>
@@ -136,28 +133,10 @@ https://templatemo.com/tm-559-zay-shop
     </div>
 
     <!-- Start Map -->
-    <div id="mapid" style="width: 100%; height: 300px;"></div>
+    <div id="mapid" style="width: 100%; height: 400px;"></div>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-    <script>
-        var mymap = L.map('mapid').setView([-23.013104, -43.394365, 13], 13);
-
-        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-            maxZoom: 18,
-            attribution: 'Zay Telmplte | Template Design by <a href="https://templatemo.com/">Templatemo</a> | Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            id: 'mapbox/streets-v11',
-            tileSize: 512,
-            zoomOffset: -1
-        }).addTo(mymap);
-
-        L.marker([-23.013104, -43.394365, 13]).addTo(mymap)
-            .bindPopup("<b>Onde</b> você está.<br />Location.").openPopup();
-
-        mymap.scrollWheelZoom.disable();
-        mymap.touchZoom.disable();
-    </script>
-    <!-- Ena Map -->
+    
+    <!-- End Map -->
 
     <!-- Start Contact -->
     <!-- <div class="container py-5">
@@ -193,9 +172,10 @@ https://templatemo.com/tm-559-zay-shop
 
     <!-- Hospitals List Start -->
         <div class="hospitalList">
-            <h2 class="hospitalName">Hospital Exemplo</h2>
+            <h2 class="hospitalName" id="hospitalNameTitle">Unidades de Sáude mais próximas</h2>
+            <h2 class="hospitalName">Hospital das Clínicas de Teresópolis</h2>
             <p class="hospitalLocation"><i class="fa-solid fa-location-dot"></i>
-                Localização do hospital</p>
+                Av. Delfim Moreira 2211, Teresópolis, RJ, 25976-016</p>
 
             <h2 class="hospitalName">Hospital Exemplo2</h2>
             <p class="hospitalLocation"><i class="fa-solid fa-location-dot"></i>
@@ -285,6 +265,9 @@ https://templatemo.com/tm-559-zay-shop
     <script src="assets/js/templatemo.js"></script>
     <script src="assets/js/custom.js"></script>
     <script src="https://kit.fontawesome.com/b2dc3f9e99.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
     <!-- End Script -->
 </body>
 

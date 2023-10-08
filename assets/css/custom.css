@@ -21,6 +21,19 @@
     left: 35%;
 }
 
+#greenHeartImg {
+    max-width: 100px;
+    position: relative;
+    left: 35%;
+}
+
+@media screen and (max-width: 600px) {
+    #profileImg {
+      left: -2%;
+    }
+  }
+
+
 #riscosImg {
     position: relative;
     top: 15%;
@@ -55,3 +68,18 @@
 #card-body-sus {
     top: -2%;
 }
+
+#servicesRow {
+    justify-content: center;
+}
+
+#hospitalNameTitle {
+    text-decoration: underline;
+    margin-bottom: 40px;
+    font-size: 1.3rem;
+}
+
+#section2 {
+    /* background-color: rgb(206, 206, 206); */
+}
+
